@@ -10,7 +10,7 @@ $.prototype = {
     },
 
     each: function(func) {
-        for (var i = 0, l = this.a.length; i < l; i++) {
+        for (var i = this.a.length; i--;) {
             func(this.a[i]);
         }
         return this;
