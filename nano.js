@@ -10,22 +10,21 @@ $.prototype = {
     },
 
     each: function(func) {
-        for (var i = this.a.length; i--;) {
+        for (var i = this.a.length; i--;)
             func(this.a[i]);
-        }
         return this;
     },
 
     css: function(prop, value) {
-        return this.each(function(e) {
-            e.style.setProperty(prop, value, null);
-        });
+        return value ? this.each(function(e) {
+            e.style[prop] = value;
+        }) : this.a[0].style[prop];
     },
 
     attr: function(key, value) {
-        return this.each(function(e) {
+        return value ? this.each(function(e) {
             e.setAttribute(key, value);
-        });
+        }) : this.a[0].getAttribute(key);
     },
 
     on: function(type, callback) {
