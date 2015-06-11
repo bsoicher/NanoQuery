@@ -16,21 +16,21 @@ $.prototype = {
         return this;
     },
 
-    css: function(name, value) {
+    css: function(prop, value) {
         return this.each(function(e) {
-            e.style.setProperty(name, value, null);
+            e.style.setProperty(prop, value, null);
         });
     },
 
-    attr: function(name, value) {
+    attr: function(key, value) {
         return this.each(function(e) {
-            e.setAttribute(name, value);
+            e.setAttribute(key, value);
         });
     },
 
-    on: function(name, func) {
+    on: function(type, callback) {
         return this.each(function(e) {
-            e.addEventListener(name, func);
+            e.addEventListener(type, callback);
         });
     }
 
