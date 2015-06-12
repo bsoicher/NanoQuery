@@ -5,7 +5,7 @@ function $(selector) {
 $.prototype = {
     
     find: function(selector) {
-        this.a = [].slice.call(document.querySelectorAll(selector));
+        this.a = typeof selector == 'string' ? [].slice.call(document.querySelectorAll(selector)) : [selector];
         return this;
     },
 
