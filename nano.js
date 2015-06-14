@@ -1,35 +1,34 @@
 function $(selector) {
-    return (this instanceof $) ? this.find(selector) : new $(selector);
+    if (this instanceof $){
+        this.a = selector && selector.nodeType ? [selector] : [].slice.call(document.querySelectorAll(selector));
+        return this;
+    }
+    return new $(selector);
 }
 
 $.prototype = {
     
-    find: function(selector) {
-        this.a = selector && selector.nodeType ? [selector] : [].slice.call(document.querySelectorAll(selector));
-        return this;
-    },
-
     each: function(func) {
         for (var i = this.a.length; i--;)
             func(this.a[i]);
         return this;
     },
 
-    css: function(prop, value) {
+    css: function(name, value) {
         return value ? this.each(function(e) {
-            e.style[prop] = value;
-        }) : this.a[0].style[prop];
+            e.style[name] = value;
+        }) : this.a[0].style[name];
     },
 
-    attr: function(key, value) {
+    attr: function(name, value) {
         return value ? this.each(function(e) {
-            e.setAttribute(key, value);
-        }) : this.a[0].getAttribute(key);
+            e.setAttribute(name, value);
+        }) : this.a[0].getAttribute(name);
     },
 
-    on: function(type, callback) {
+    on: function(name, func) {
         return this.each(function(e) {
-            e.addEventListener(type, callback);
+            e.addEventListener(name, func);
         });
     }
 
