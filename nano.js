@@ -14,21 +14,21 @@ $.prototype = {
         return this;
     },
 
-    css: function(name, value) {
+    css: function(prop, value) {
         return value ? this.each(function(e) {
-            e.style[name] = value;
-        }) : this.a[0].style[name];
+            e.style[prop] = value;
+        }) : this.a[0].style[prop];
     },
 
-    attr: function(name, value) {
+    attr: function(key, value) {
         return value ? this.each(function(e) {
-            e.setAttribute(name, value);
-        }) : this.a[0].getAttribute(name);
+            e.setAttribute(key, value);
+        }) : this.a[0].getAttribute(key);
     },
 
-    on: function(name, func) {
+    on: function(type, callback) {
         return this.each(function(e) {
-            e.addEventListener(name, func);
+            e.addEventListener(type, callback);
         });
     }
 
