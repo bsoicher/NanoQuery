@@ -10,4 +10,4 @@ $("div").on("click", function(){
 });
 ```
 
-Was more of a learning excercise for chainable methods and such.  Could be extended easily, but for anything serious I'd recommend going with [JQuery](www.github.com/jquery/jquery) or [Zepto](www.github.com/madrobby/zepto).
+Was more of a learning excercise for chainable methods and such.  Could be extended easily, but for anything serious I'd recommend going with [JQuery](https://github.com/jquery/jquery) or [Zepto](https://github.com/madrobby/zepto).
